@@ -1,0 +1,25 @@
+[project]
+name = "goit-rdb-hw-04"
+version = "0.1.0"
+description = "Проектування баз даних з використанням семантичних моделей"
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.12"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mysql-connector-python = "^8.0.0"
+python-dotenv = "^1.0.0"
+ipykernel = "^6.29.5"
+pandas = "^2.3.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+

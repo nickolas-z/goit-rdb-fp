@@ -1,0 +1,27 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: goit-rdb-hw-02-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: goit-rdb-hw-02
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpassword
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./mysql.cnf:/etc/mysql/conf.d/mysql.cnf
+    networks:
+      - goit-network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  goit-network:
+    driver: bridge
